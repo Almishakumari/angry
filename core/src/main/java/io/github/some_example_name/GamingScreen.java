@@ -4,7 +4,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
+//i am commenting on this
 public class GamingScreen implements Screen {
     // A SpriteBatch instance for drawing textures.
     private final SpriteBatch batch;
