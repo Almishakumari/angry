@@ -21,7 +21,7 @@ there.
 ----commands to set up and run the project:---
 pass command-->>
    git clone https://github.com/Almishakumari/angry.git . ( allow you to clone the repository). then
-   cd repository -- (which is angry) then
+   cd angry --  then
    ./gradlew build -- then
    ./gradlew run
 
