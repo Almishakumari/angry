@@ -25,14 +25,11 @@ public class LoadingScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-
         batch.begin();
         batch.draw(loadingImage, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
 
-
         loadingTime += delta;
-
 
         if (loadingTime > 2.0f) {
             main.setScreen(new MenuScreen(batch, new Texture("img_1.png"), main));

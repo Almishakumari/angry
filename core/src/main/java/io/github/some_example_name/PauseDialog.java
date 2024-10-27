@@ -29,7 +29,6 @@ public class PauseDialog {
         this.stage = new Stage();
         this.skin = new Skin(Gdx.files.internal("uiskin.json"));
         this.paused = false;
-
         createButtons();
     }
 

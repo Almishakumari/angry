@@ -62,7 +62,6 @@ public class Level1Screen implements Screen {
         pigs.add(new Pigs("Green Pig", 100, 1110, 400, 10, 70, 70));
         pigs.add(new Pigs("Blue Pig", 100, 1110, 200, 10, 70, 70));
 
-
     }
 
     @Override
@@ -73,42 +72,29 @@ public class Level1Screen implements Screen {
 
             batch.begin();
 
-
-
-
             batch.draw(level1Background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
             batch.draw(catapultTexture, catapult.getPositionX(), catapult.getPositionY(), catapultWidth, catapultHeight);
-
             batch.draw(birdTexture, bird.getPosition(), 180, birdWidth, birdHeight);
-
 
             for (Blocks block : blocks) {
                 batch.draw(blockTexture, block.getPositionX(), block.getPositionY(), block.getWidth(), block.getHeight());
             }
 
-
             for (Pigs pig : pigs) {
                 batch.draw(pigTexture, pig.getPositionX(), pig.getPositionY(), pig.getWidth(), pig.getHeight());
             }
 
-
             float pauseButtonX = Gdx.graphics.getWidth() - pauseButtonSize - 20;
             float pauseButtonY = Gdx.graphics.getHeight() - pauseButtonSize - 20;
             batch.draw(pauseButtonTexture, pauseButtonX, pauseButtonY, pauseButtonSize, pauseButtonSize);
-
-
             float winButtonX = Gdx.graphics.getWidth() - winButtonSize - 20;
             float winButtonY = 20;
             batch.draw(winButtonTexture, winButtonX, winButtonY, winButtonSize, winButtonSize);
-
-
             float loseButtonX = winButtonX - loseButtonSize - 20;
             float loseButtonY = winButtonY;
             batch.draw(loseButtonTexture, loseButtonX, loseButtonY, loseButtonSize, loseButtonSize);
 
-
             batch.end();
-
             handleInput();
         } else {
             pauseDialog.render();
@@ -130,7 +116,6 @@ public class Level1Screen implements Screen {
                 return;
             }
 
-            // Win button input
             float winButtonX = Gdx.graphics.getWidth() - winButtonSize - 20;
             float winButtonY = 20;
             if (touchX >= winButtonX && touchX <= winButtonX + winButtonSize &&
@@ -139,7 +124,6 @@ public class Level1Screen implements Screen {
                 return;
             }
 
-            // Lose button input
             float loseButtonX = winButtonX - loseButtonSize - 20;
             float loseButtonY = winButtonY;
             if (touchX >= loseButtonX && touchX <= loseButtonX + loseButtonSize &&
@@ -149,8 +133,6 @@ public class Level1Screen implements Screen {
             }
         }
     }
-
-
 
 
     @Override

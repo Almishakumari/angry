@@ -16,8 +16,8 @@ public class Level3Screen implements Screen {
 
     public Level3Screen(Main main,  SpriteBatch batch) {
         this.batch = batch;
-        pauseButtonTexture = new Texture("pause.png");
         this.main = main;
+        pauseButtonTexture = new Texture("pause.png");
         pauseDialog = new PauseDialog(main, batch);
         this.level3Background = new Texture("level3.jpg");
     }
@@ -33,8 +33,6 @@ public class Level3Screen implements Screen {
             float pauseButtonX = Gdx.graphics.getWidth() - pauseButtonSize - 20;
             float pauseButtonY = Gdx.graphics.getHeight() - pauseButtonSize - 20;
             batch.draw(pauseButtonTexture, pauseButtonX, pauseButtonY, pauseButtonSize, pauseButtonSize);
-
-
             batch.end();
 
             handleInput();

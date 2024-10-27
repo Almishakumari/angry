@@ -21,7 +21,6 @@ public class Main extends Game {
         loadingImage = new Texture("img.png");
         menuscreen = new Texture("img_1.png");
         play = new Texture("img2.png");
-
         setScreen(new LoadingScreen(batch, loadingImage, this));
 
     }
@@ -38,9 +37,5 @@ public class Main extends Game {
         loadingImage.dispose();
         menuscreen.dispose();
         play.dispose();
-
-
     }
-
-
 }

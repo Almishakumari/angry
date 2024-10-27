@@ -54,7 +54,6 @@ public class MenuScreen implements Screen {
         batch.draw(menu1Images[1], otherButtonX, otherButtonY, otherButtonWidth, otherButtonHeight);
         batch.draw(menu1Images[2], quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
 
-
         batch.end();
 
         if (Gdx.input.justTouched()) {

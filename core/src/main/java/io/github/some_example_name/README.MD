@@ -13,3 +13,7 @@ replay, go back to main menu or directly trigger win/lose scenarios using the re
 Level 2 Gameplay :
 we just added the background in game with pause button, same for Level 3 screen.
 
+----commands to set up and run the project:---
+
+
+

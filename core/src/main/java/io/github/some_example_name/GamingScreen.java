@@ -20,14 +20,11 @@ public class GamingScreen implements Screen {
     public GamingScreen(Main main , SpriteBatch batch) {
         this.main = main;
         this.batch = batch;
-
         this.gameBackground = new Texture("img_3.png");
         this.game1Background = new Texture("1.png");
         this.game2Background = new Texture("2.png");
         this.game3Background = new Texture("3.png");
         this.game4Background  = new Texture("4.png");
-
-
 
     }
 
@@ -39,18 +36,14 @@ public class GamingScreen implements Screen {
 
         float screenWidth = Gdx.graphics.getWidth();
         float screenHeight = Gdx.graphics.getHeight();
-
         float imageY = screenHeight / 2;
         float buttonWidth = screenWidth / 5f;
         float buttonHeight = screenHeight / 3f;
         float spacing = 10;
-
-
         float image1X = spacing;
         float image2X = image1X + buttonWidth + spacing;
         float image3X = image2X + buttonWidth + spacing;
         float image4X = image3X + buttonWidth + spacing;
-
 
         batch.begin();
         batch.draw(gameBackground, 0, 0, screenWidth, screenHeight);
@@ -59,8 +52,6 @@ public class GamingScreen implements Screen {
         batch.draw(game3Background, image3X, imageY - buttonHeight / 2, buttonWidth, buttonHeight);
         batch.draw(game4Background, image4X, imageY - buttonHeight / 2, buttonWidth, buttonHeight);
         batch.end();
-
-
 
         if (Gdx.input.justTouched()) {
             float touchX = Gdx.input.getX();
@@ -116,8 +107,5 @@ public class GamingScreen implements Screen {
             game2Background.dispose();
             game3Background.dispose();
             game4Background.dispose();
-
-
-
     }
 }

@@ -22,7 +22,6 @@ public class LoseScreen implements Screen {
     public LoseScreen(Main main, SpriteBatch batch) {
         this.main = main;
         this.batch = batch;
-
         this.backgroundTexture = new Texture("game over.png");
         this.stage = new Stage(new ScreenViewport(), batch);
         Gdx.input.setInputProcessor(stage);

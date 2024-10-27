@@ -27,14 +27,11 @@ public class Level2Screen implements Screen {
         if (!pauseDialog.isPaused()) {
             Gdx.gl.glClearColor(0, 0, 0, 1);
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
             batch.begin();
         batch.draw(level2Background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         float pauseButtonX = Gdx.graphics.getWidth() - pauseButtonSize - 20;
         float pauseButtonY = Gdx.graphics.getHeight() - pauseButtonSize - 20;
         batch.draw(pauseButtonTexture, pauseButtonX, pauseButtonY, pauseButtonSize, pauseButtonSize);
-
-
             batch.end();
 
             handleInput();
