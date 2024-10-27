@@ -9,20 +9,54 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Level3Screen implements Screen {
     private final SpriteBatch batch;
     private final Texture level3Background;
+    private final Texture pauseButtonTexture;
+    private final float pauseButtonSize = 80f;
+    private final PauseDialog pauseDialog;
+    private final Main main;
 
-    public Level3Screen(SpriteBatch batch) {
+    public Level3Screen(Main main,  SpriteBatch batch) {
         this.batch = batch;
-        this.level3Background = new Texture("level3.png"); // Replace with your actual level 3 background image
+        pauseButtonTexture = new Texture("pause.png");
+        this.main = main;
+        pauseDialog = new PauseDialog(main, batch);
+        this.level3Background = new Texture("level3.jpg");
     }
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        if (!pauseDialog.isPaused()) {
+            Gdx.gl.glClearColor(0, 0, 0, 1);
+            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        batch.begin();
-        batch.draw(level3Background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.end();
+            batch.begin();
+            batch.draw(level3Background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+            float pauseButtonX = Gdx.graphics.getWidth() - pauseButtonSize - 20;
+            float pauseButtonY = Gdx.graphics.getHeight() - pauseButtonSize - 20;
+            batch.draw(pauseButtonTexture, pauseButtonX, pauseButtonY, pauseButtonSize, pauseButtonSize);
+
+
+            batch.end();
+
+            handleInput();
+        } else {
+            pauseDialog.render();
+        }
+    }
+    private void handleInput() {
+        if (Gdx.input.justTouched()) {
+            float touchX = Gdx.input.getX();
+            float touchY = Gdx.graphics.getHeight() - Gdx.input.getY();
+
+            float pauseButtonX = Gdx.graphics.getWidth() - pauseButtonSize - 20;
+            float pauseButtonY = Gdx.graphics.getHeight() - pauseButtonSize - 20;
+
+            if (touchX >= pauseButtonX && touchX <= pauseButtonX + pauseButtonSize &&
+                touchY >= pauseButtonY && touchY <= pauseButtonY + pauseButtonSize) {
+                pauseDialog.toggle();
+                return;
+            }
+
+        }
     }
 
     @Override

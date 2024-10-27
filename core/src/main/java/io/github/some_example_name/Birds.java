@@ -7,7 +7,6 @@ public class Birds {
     private int weight;
     private float position;
 
-    // Constructor
     public Birds(String type, int power, int speed, int weight, float position) {
         this.type = type;
         this.power = power;
@@ -16,7 +15,6 @@ public class Birds {
         this.position = position;
     }
 
-    // Getters (optional, for accessing the private fields)
     public String getType() {
         return type;
     }
@@ -37,7 +35,7 @@ public class Birds {
         return position;
     }
 
-    // Setters (optional, for modifying the private fields)
+
     public void setType(String type) {
         this.type = type;
     }

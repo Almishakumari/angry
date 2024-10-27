@@ -10,35 +10,32 @@ public class LoadingScreen implements Screen {
     private final SpriteBatch batch;
     private final Texture loadingImage;
     private final Main main;
-    private float loadingTime; // Track the loading time
+    private float loadingTime;
 
     public LoadingScreen(SpriteBatch batch, Texture loadingImage, Main main) {
         this.batch = batch;
         this.loadingImage = loadingImage;
         this.main = main;
-        this.loadingTime = 0; // Initialize loading time
+        this.loadingTime = 0;
     }
 
     @Override
     public void render(float delta) {
-        // Clear the screen
+
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Draw loading image
+
         batch.begin();
         batch.draw(loadingImage, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
 
-        // Increment loading time
+
         loadingTime += delta;
 
-        // After a delay, transition to the MenuScreen
-        if (loadingTime > 2.0f) { // Simulate a loading time of 2 seconds
+
+        if (loadingTime > 2.0f) {
             main.setScreen(new MenuScreen(batch, new Texture("img_1.png"), main));
-            //main.setScreen(new MenuScreen(batch, new Texture("img2.png"), main));
-
-
         }
     }
 

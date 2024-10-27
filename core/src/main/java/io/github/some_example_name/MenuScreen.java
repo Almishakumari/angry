@@ -22,56 +22,63 @@ public class MenuScreen implements Screen {
         this.menuBackground = menuBackground;
         this.main = main;
 
-        menu1Images = new Texture[2]; // Assuming you want to load 3 images
-        menu1Images[0] = new Texture("img2.png"); // Replace with your actual image file names
+        menu1Images = new Texture[3];
+        menu1Images[0] = new Texture("img2.png");
         menu1Images[1] = new Texture("img_2.png");
+        menu1Images[2] = new Texture("quit.png");
 
     }
 
     @Override
     public void render(float delta) {
-        // Clear the screen
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Play button size and position
         float playButtonX = 500;
-        float playButtonY = 50;
-        float playButtonWidth = 500;
-        float playButtonHeight = 500;
+        float playButtonY = 10;
+        float playButtonWidth = 600;
+        float playButtonHeight = 600;
 
-        // Draw the menu background and buttons
         batch.begin();
         batch.draw(menuBackground, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
-        // Draw the play button
         batch.draw(menu1Images[0], playButtonX, playButtonY, playButtonWidth, playButtonHeight);
-
-        // Optionally, draw other menu images here if you want
         float otherButtonX = 520;
         float otherButtonY = 380;
         float otherButtonWidth = 520;
         float otherButtonHeight = 520;
+        float quitButtonX = 1250;
+        float quitButtonY = 600;
+        float quitButtonWidth = 500;
+        float quitButtonHeight = 500;
+
         batch.draw(menu1Images[1], otherButtonX, otherButtonY, otherButtonWidth, otherButtonHeight);
+        batch.draw(menu1Images[2], quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+
 
         batch.end();
 
-        // Check if the play button is clicked
         if (Gdx.input.justTouched()) {
             float touchX = Gdx.input.getX();
             float touchY = Gdx.graphics.getHeight() - Gdx.input.getY();
 
-            // Check if the touch is within the play button area
             if (touchX >= playButtonX && touchX <= playButtonX + playButtonWidth &&
                 touchY >= playButtonY && touchY <= playButtonY + playButtonHeight) {
 
-                // Add a small delay to prevent immediate screen switching
                 Timer.schedule(new Task() {
                     @Override
                     public void run() {
                         main.setScreen(new GamingScreen(main, batch));
                     }
-                }, 0.1f);}}}
+                },
+                    0.1f);
+            }
+            if (touchX >= quitButtonX && touchX <= quitButtonX + quitButtonWidth &&
+                touchY >= quitButtonY && touchY <= quitButtonY + quitButtonHeight) {
+
+                Gdx.app.exit();
+            }
+
+        }}
 
 
 

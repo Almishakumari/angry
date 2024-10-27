@@ -4,16 +4,15 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-//i am commenting on this
+
 public class GamingScreen implements Screen {
-    // A SpriteBatch instance for drawing textures.
+
     private final SpriteBatch batch;
     private final Texture gameBackground;
     private final Texture game1Background;
     private final Texture game2Background;
     private final Texture game3Background;
     private final Texture game4Background;
-    private final Texture setting;
     private final Main main;
 
 
@@ -22,11 +21,10 @@ public class GamingScreen implements Screen {
         this.main = main;
         this.batch = batch;
 
-        this.gameBackground = new Texture("img_3.png"); // Replace with your actual game background image
+        this.gameBackground = new Texture("img_3.png");
         this.game1Background = new Texture("1.png");
         this.game2Background = new Texture("2.png");
         this.game3Background = new Texture("3.png");
-        this.setting = new Texture("img_4.png");
         this.game4Background  = new Texture("4.png");
 
 
@@ -56,11 +54,10 @@ public class GamingScreen implements Screen {
 
         batch.begin();
         batch.draw(gameBackground, 0, 0, screenWidth, screenHeight);
-        batch.draw(setting, screenWidth - 100, screenHeight - 100, 80, 80); // Settings button in the top-right corner
-        batch.draw(game1Background, image1X, imageY - buttonHeight / 2, buttonWidth, buttonHeight); // First image
-        batch.draw(game2Background, image2X, imageY - buttonHeight / 2, buttonWidth, buttonHeight); // Second image
-        batch.draw(game3Background, image3X, imageY - buttonHeight / 2, buttonWidth, buttonHeight); // Third image
-        batch.draw(game4Background, image4X, imageY - buttonHeight / 2, buttonWidth, buttonHeight); // Fourth image
+        batch.draw(game1Background, image1X, imageY - buttonHeight / 2, buttonWidth, buttonHeight);
+        batch.draw(game2Background, image2X, imageY - buttonHeight / 2, buttonWidth, buttonHeight);
+        batch.draw(game3Background, image3X, imageY - buttonHeight / 2, buttonWidth, buttonHeight);
+        batch.draw(game4Background, image4X, imageY - buttonHeight / 2, buttonWidth, buttonHeight);
         batch.end();
 
 
@@ -72,19 +69,19 @@ public class GamingScreen implements Screen {
 
             if (touchX >= image1X && touchX <= image1X + buttonWidth &&
                 touchY >= imageY - buttonHeight / 2 && touchY <= imageY + buttonHeight / 2) {
-                main.setScreen(new Level1Screen(batch));
+                main.setScreen(new Level1Screen(main, batch));
             }
 
 
             if (touchX >= image2X && touchX <= image2X + buttonWidth &&
                 touchY >= imageY - buttonHeight / 2 && touchY <= imageY + buttonHeight / 2) {
-                main.setScreen(new Level2Screen(batch));
+                main.setScreen(new Level2Screen(main,batch));
             }
 
 
             if (touchX >= image3X && touchX <= image3X + buttonWidth &&
                 touchY >= imageY - buttonHeight / 2 && touchY <= imageY + buttonHeight / 2) {
-                main.setScreen(new Level3Screen(batch));
+                main.setScreen(new Level3Screen(main, batch));
             }
 
 
@@ -119,7 +116,6 @@ public class GamingScreen implements Screen {
             game2Background.dispose();
             game3Background.dispose();
             game4Background.dispose();
-            setting.dispose();
 
 
 

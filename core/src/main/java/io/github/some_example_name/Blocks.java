@@ -3,18 +3,24 @@ package io.github.some_example_name;
 public class Blocks {
     private String type;
     private int health;
-    private float position;
+    private float positionX;
+    private float positionY;
     private int score;
+    private float width;
+    private float height;
 
     // Constructor
-    public Blocks(String type, int health, float position, int score) {
+    public Blocks(String type, int health, float positionX, float positionY, int score,  float width, float height) {
         this.type = type;
         this.health = health;
-        this.position = position;
+        this.positionX = positionX;
+        this.positionY = positionY;
         this.score = score;
+        this.width = width;
+        this.height = height;
     }
 
-    // Getters (optional, for accessing the private fields)
+
     public String getType() {
         return type;
     }
@@ -23,15 +29,35 @@ public class Blocks {
         return health;
     }
 
-    public float getPosition() {
-        return position;
+    public float getWidth() {
+        return width;
+    }
+
+    public void setWidth(float width) {
+        this.width = width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public float getPositionX() {
+        return positionX;
+    }
+
+    public float getPositionY() {
+        return positionY;
     }
 
     public int getScore() {
         return score;
     }
 
-    // Setters (optional, for modifying the private fields)
+
     public void setType(String type) {
         this.type = type;
     }
@@ -40,9 +66,6 @@ public class Blocks {
         this.health = health;
     }
 
-    public void setPosition(float position) {
-        this.position = position;
-    }
 
     public void setScore(int score) {
         this.score = score;
