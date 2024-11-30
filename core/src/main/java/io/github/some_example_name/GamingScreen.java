@@ -102,10 +102,10 @@ public class GamingScreen implements Screen {
 
     @Override
     public void dispose() {
-            gameBackground.dispose();
-            game1Background.dispose();
-            game2Background.dispose();
-            game3Background.dispose();
-            game4Background.dispose();
+        gameBackground.dispose();
+        game1Background.dispose();
+        game2Background.dispose();
+        game3Background.dispose();
+        game4Background.dispose();
     }
 }

@@ -8,6 +8,7 @@ public class Pigs {
     private int score;
     private float width;
     private float height;
+    private boolean destroyed;
 
     // Constructor
     public Pigs(String type, int health, float positionX, float positionY, int score, float width, float height) {
@@ -33,6 +34,30 @@ public class Pigs {
         return width;
     }
 
+    public void setPositionX(float positionX) {
+        this.positionX = positionX;
+    }
+
+    public void setPositionY(float positionY) {
+        this.positionY = positionY;
+    }
+    public void destroy() {
+        destroyed = true;
+        // Add visual effects like explosions or particles here
+    }
+
+    public void takeDamage(int damage) {
+        health -= damage;
+        if (health <= 0) {
+            destroy();
+        }
+    }
+
+
+
+    public boolean isDestroyed() {
+        return destroyed;
+    }
     public float getHeight() {
         return height;
     }

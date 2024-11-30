@@ -8,8 +8,8 @@ public class Blocks {
     private int score;
     private float width;
     private float height;
+    private boolean destroyed;
 
-    // Constructor
     public Blocks(String type, int health, float positionX, float positionY, int score,  float width, float height) {
         this.type = type;
         this.health = health;
@@ -33,8 +33,23 @@ public class Blocks {
         return width;
     }
 
+    public void setPositionX(float positionX) {
+        this.positionX = positionX;
+    }
+
+    public void setPositionY(float positionY) {
+        this.positionY = positionY;
+    }
     public void setWidth(float width) {
         this.width = width;
+    }
+
+    public boolean isDestroyed() {
+        return destroyed;
+    }
+
+    public void destroy() {
+        destroyed = true;
     }
 
     public float getHeight() {
@@ -70,4 +85,5 @@ public class Blocks {
     public void setScore(int score) {
         this.score = score;
     }
+
 }
